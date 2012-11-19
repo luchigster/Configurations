@@ -1,4 +1,4 @@
 Configurations
 ==============
 
-Mes configurations de tous les applications.
+Les configurations de tous mes applications.

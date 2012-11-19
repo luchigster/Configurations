@@ -1,0 +1,49 @@
+[core]
+	editor = vi
+	symlinks = false
+	autocrlf = false	
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = true
+[pack]
+	packSizeLimit = 2g
+[help]
+	format = html
+[http]
+	sslCAinfo = /bin/curl-ca-bundle.crt
+[sendemail]
+	smtpserver = /bin/msmtp.exe
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpuser = luchigster@gmail.com
+	smtppass = ilikecanada
+	smtpserverport = 587
+    to = luchigster@gmail.com
+[diff "astextplain"]
+	textconv = astextplain
+[diff "word"]
+    	textconv = strings
+[gui]
+	encoding = utf-8
+[i18n]
+	commitencoding = utf-8
+	logoutputencoding = gbk
+[alias]
+  	st = status
+ 	co = commit
+	coa = commit -a
+ 	br = branch
+  	ch = checkout
+ 	dis = diff --stat --ignore-space-at-eol
+	dii = diff --ignore-space-at-eol
+  	lo = log -p
+	me = merge
+	arz = archive HEAD --prefix='archive/' --format=zip > `git describe HEAD`.zip
+	arg = archive HEAD --prefix='archive/' | gzip > `git describe HEAD`.tar.gz
+[user]
+	name = Chiguang Lu
+[github]
+	user = luchigster
+	token = 0212afecd2e5d9cb1e6cb2925144d40f

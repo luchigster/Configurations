@@ -1,4 +1,4 @@
-'''生成cscope.files并生成out文件
+'''鐢熸垚cscope.files骞剁敓鎴恛ut鏂囦欢
 '''
 __revision__ = '0.1'
 __author__ = 'lxd'

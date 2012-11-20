@@ -3,7 +3,7 @@
 __revision__ = '0.1'
 __author__ = 'lxd'
 
-PATH= r'C:\GitHub\django'
+PATH= r'.'
 FILE_TYPE_LIST= ['py']
 
 if __name__ == '__main__':

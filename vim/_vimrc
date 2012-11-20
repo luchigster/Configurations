@@ -24,7 +24,7 @@ endif
 "1. 自动识别文件类型
 "2. 用文件类型plugin脚本
 "3. 使用缩进定义文件 编辑程序的时候, 语句的缩进可以让它自动完成
-"filetype plugin indent on  
+filetype plugin indent on  
 "开启文件类型侦测
 filetype on
 "根据侦测到的不同类型加载对应的插件
@@ -35,6 +35,19 @@ filetype indent on
 set completeopt=longest,menu
 "启用new-omni-completion
 set ofu=syntaxcomplete#Complete
+
+"自动补全命令时候使用菜单式匹配列表  
+set wildmenu
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType java set omnifunc=javacomplete#Complet
+
+"Pydiction
+let g:pydiction_location = 'D:\Program Files (x86)\Vim\vimfiles\ftplugin\pydiction\complete-dict'
 
 " The following are commented out as they cause vim to behave a lot  
 " differently from regular Vi. They are highly recommended though.  
@@ -47,6 +60,13 @@ set incsearch		" Incremental search
 set autowrite		" Automatically save before commands like :next and :make  
 "set hidden             " Hide buffers when they are abandoned  
 set mouse=a			" Enable mouse usage (all modes)  
+
+" 允许退格键删除和tab操作  
+set smartindent  
+set smarttab  
+set expandtab  
+set backspace=2
+set textwidth=79
 
 " 不讨论制表符为8 还是为4 较好，这里设置（软）制表符宽度为4
 set tabstop=4
@@ -76,10 +96,11 @@ let &termencoding=&encoding
 "Vim 的内部编码,Vim在处理文本或表示文本时所使用的编码.
 set encoding=gbk
 "文件编码,就是文件的数据在磁盘中存储所使用的编码.
-set fileencoding=utf-8 
+set fileencoding=utf-8
 "宽度“不明”的字符宽度置为双倍字符宽度（中文字符宽度）
 set ambiwidth=double 
 "Vim 打开文件时的尝试使用的编码.
+"set fileencodings=utf-8,cp936,big5,euc-jp,euc-kr,latin1,ucs-bom  
 set fileencodings=ucs-bom,utf-8,gbk 
 
 set diffexpr=MyDiff()
@@ -136,4 +157,32 @@ set foldmethod=marker
 "Windows下的复制粘贴
 map <C-c> "+y
 map <C-v> "+p
+
+"TagList
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+
+"tags
+"第一个命令里的分号是必不可少的。这个命令让vim首先在当前目录里寻找tags文件，
+"如果没有找到tags文件，或者没有找到对应的目标，就到父目录 中查找，一直向上
+"递归。因为tags文件中记录的路径总是相对于tags文件所在的路径，所以要使用第二
+"个设置项来改变vim的当前目录。 
+set tags=tags;
+set autochdir
+
+"WinManager
+let g:winManagerWindowLayout='FileExplorer|TagList'
+nmap wm :WMToggle<cr>
+
+"cscope show in quickfix
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+
+"MiniBufExplorer
+let g:miniBufExplMapWindowNavVim = 1 
+let g:miniBufExplMapWindowNavArrows = 1 
+let g:miniBufExplMapCTabSwitchBufs = 1 
+let g:miniBufExplModSelTarget = 1
+
+"Grep
+nnoremap <silent> <F3> :Grep<CR>
 
